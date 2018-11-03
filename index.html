@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Geolocation - PhoneGapPro.com</title>
+ <link rel="stylesheet" href="build/css/framework7.material.css">
+ <link rel="stylesheet" href="build/css/framework7.material.colors.css">
+ <link rel="stylesheet" href="css/material-icons.css">
+ <link rel="stylesheet" href="css/kitchen-sink.css"> 
+ <script type="text/javascript" src="cordova.js"></script>
+ <script type="text/javascript">
+    //addEventListener digunakan utk mengeksekusi sebuah event yang bisa ditentukan sendiri
+    //object.addEventListener('event_type', function_name, true_or_false);
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        //var onSuccess = function(position) {
+        //alert('Latitude : ' + position.coords.latitude + '\n' +
+        //      'Longitude: ' + position.coords.longitude + '\n');
+    //};
+
+    // onSuccess Callback
+    // This method accepts a Position object, which contains the
+    // current GPS coordinates
+    var onSuccess = function(position) {
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+              'Longitude: '         + position.coords.longitude         + '\n' +
+              'Altitude: '          + position.coords.altitude          + '\n' +
+              'Accuracy: '          + position.coords.accuracy          + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+              'Heading: '           + position.coords.heading           + '\n' +
+              'Speed: '             + position.coords.speed             + '\n' +
+              'Timestamp: '         + position.timestamp                + '\n');
+    };
+
+    function onError(error) {
+        alert('code: ' + error.code + '\n' +
+              'message: ' + error.message + '\n');
+        }
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+ </script>
+</head>
+<body>
+
+<div class="views">
+    <div class="view view-main">
+        <div class="pages navbar-fixed">
+            <div data-page="index" class="page">
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <div class="center">Framework7</div>
+                        <div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+                    </div>
+                </div>
+                  <div class="toolbar toolbar-bottom">
+                    <div class="toolbar-inner">
+                      <a href="#" class="link">Link 1</a>
+                      <a href="#" class="link">Link 2</a>
+                      <a href="#" class="link">Link 3</a>
+                    </div>
+                  </div>
+                <div class="page-content">
+                    <div class="content-block-title">Geolocation</div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="build/js/framework7.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
